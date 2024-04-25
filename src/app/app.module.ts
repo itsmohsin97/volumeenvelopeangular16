@@ -6,8 +6,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
+import { AppComponent } from './app.component'; 
+import { jqxKnobModule } from 'jqwidgets-ng/jqxknob';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    jqxKnobModule,
     NgxSpinnerModule.forRoot({ type: 'pacman' })
   ],
   providers: [],

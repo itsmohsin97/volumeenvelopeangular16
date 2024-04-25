@@ -8,15 +8,41 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class AppComponent {
   title = 'angular16';
 
-  constructor(private spinner: NgxSpinnerService) {}
-  ngOnInit() {
-    /** spinner starts on init */
-    this.spinner.show();
+  constructor(private spinner: NgxSpinnerService) { }
+  marks: any =
+    {
+      colorRemaining: { color: '#373636', border: '#373636' },
+      colorProgress: { color: '#373636', border: '#373636' },
+      type: 'line',
+      offset: '71%',
+      thickness: 1,
+      size: '6%',
+      majorSize: '9%',
+      majorInterval: 10,
+      minorInterval: 2
+    };
+  labels: any =
+    {
+      offset: '88%',
+      step: 10,
+      visible: true
+    };
+  progressBar: any =
+    {
+      size: '70%',
+      offset: '0%',
+      background: {
+        stroke: '#373636', strokeWidth: 1, fill: { color: '#a7a7a7', gradientType: "linear", gradientStops: [[0, 1], [50, 0.5], [100, 1]] }
+      }
+    };
+  pointer: any =
+    {
+      type: 'circle', style: { fill: { color: '#a4a3a3', gradientType: "linear", gradientStops: [[0, 0.5], [50, 0.6], [100, 1]] }, stroke: '#333' },
+      size: '10%', offset: '50%'
+    };
 
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 10000);
+  onvolchange(val: any) {
+    console.log(val.args.value)
   }
 }
 
