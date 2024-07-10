@@ -1,17 +1,34 @@
-<div style="display: flex;">
+<!-- <div style="display: flex;">
 
-    <!-- <jqxKnob [value]="60" [min]="0" [max]="100" [startAngle]="120" [height]="20" [width]="20" [endAngle]="480"
-        [snapToStep]="true" [rotation]="'clockwise'" [marks]="marks" [labels]="labels" [progressBar]="progressBar"
-        [pointer]="pointer" (onChange)="onvolchange($event)">
-    </jqxKnob> -->
+ 
     <jqxKnob [value]="60" [min]="0" [max]="100" [startAngle]="120" [height]="50" [width]="50" [endAngle]="480"
         [snapToStep]="true" [rotation]="'clockwise'" [marks]="marks" [labels]="labels" [progressBar]="progressBar"
         [pointer]="pointer" (onChange)="onvolchange($event)">
     </jqxKnob>
-</div>
+</div> -->
 <!-- <jqxKnob
     [value]="60" [min]="0" [max]="100" [startAngle]="120"
     [endAngle]="480" [snapToStep]="true" [rotation]="'clockwise'"
     [marks]="marks" [labels]="labels" [progressBar]="progressBar" [pointer]="pointer"
     (onChange)="onvolchange($event)">
 </jqxKnob> -->
+<div class="ruler">
+    <div *ngFor="let cell of cells" class="cell"></div>
+  </div>
+  
+  <div class="progress-container">
+    <div class="progress-bar" [style.width.%]="progress"></div>
+  </div>
+  
+  <button (click)="togglePlay()">{{ isPlaying ? 'Pause' : 'Play' }}</button>
+  <button (click)="addMarker()">Add Marker</button>
+  
+  <div *ngFor="let marker of markers; let i = index" 
+       class="marker" 
+       [style.left.%]="marker.position" 
+       (dblclick)="removeMarker(i)">
+    ▼
+  </div>
+  
+  
+  
