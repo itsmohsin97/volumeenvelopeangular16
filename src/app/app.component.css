@@ -29,4 +29,64 @@
     font-size: 20px;
     cursor: pointer;
   }
+  #tooltip {
+    position: absolute;
+    display: none;
+    border: grey solid 1px;
+    background: white;
+    padding: 10px;
+  }
   
+  #cal1 {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    top: 100px;
+    left: 100px;
+    overflow: none;
+    z-index: -100;
+  }
+  
+  #cal2 {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    top: 0px;
+    left: 0px;
+    overflow: none;
+    z-index: -100;
+  }
+  textarea {
+    font-size: 14px; /* Default font size */
+    transition: font-size 0.3s ease; /* Smooth transition for font size change */
+  }
+  
+  textarea.selected {
+    font-size: 20px; /* Increased font size when selected */
+  }
+  
+
+
+
+
+
+
+
+
+
+  /* toggle-input.component.css */
+.bordered {
+  border: 1px solid black;
+  padding: 5px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.bordered-table {
+  border-collapse: collapse;
+}
+
+.bordered-table td {
+  border: 1px solid black;
+  padding: 5px;
+}

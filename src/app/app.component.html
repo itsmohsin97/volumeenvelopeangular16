@@ -1,34 +1,83 @@
-<!-- <div style="display: flex;">
-
- 
-    <jqxKnob [value]="60" [min]="0" [max]="100" [startAngle]="120" [height]="50" [width]="50" [endAngle]="480"
-        [snapToStep]="true" [rotation]="'clockwise'" [marks]="marks" [labels]="labels" [progressBar]="progressBar"
-        [pointer]="pointer" (onChange)="onvolchange($event)">
-    </jqxKnob>
-</div> -->
-<!-- <jqxKnob
-    [value]="60" [min]="0" [max]="100" [startAngle]="120"
-    [endAngle]="480" [snapToStep]="true" [rotation]="'clockwise'"
-    [marks]="marks" [labels]="labels" [progressBar]="progressBar" [pointer]="pointer"
-    (onChange)="onvolchange($event)">
-</jqxKnob> -->
-<div class="ruler">
+<!-- <div class="ruler">
     <div *ngFor="let cell of cells" class="cell"></div>
-  </div>
-  
-  <div class="progress-container">
+</div>
+
+<div class="progress-container">
     <div class="progress-bar" [style.width.%]="progress"></div>
-  </div>
-  
-  <button (click)="togglePlay()">{{ isPlaying ? 'Pause' : 'Play' }}</button>
-  <button (click)="addMarker()">Add Marker</button>
-  
-  <div *ngFor="let marker of markers; let i = index" 
-       class="marker" 
-       [style.left.%]="marker.position" 
-       (dblclick)="removeMarker(i)">
+</div>
+
+<button (click)="togglePlay()">{{ isPlaying ? 'Pause' : 'Play' }}</button>
+<button (click)="addMarker()">Add Marker</button>
+
+<div *ngFor="let marker of markers; let i = index" class="marker" [style.left.%]="marker.position"
+    (dblclick)="removeMarker(i)">
     ▼
-  </div>
-  
-  
-  
+</div> -->
+<!-- <div class="annuswaram-creator">
+    <h3>Create Annuswaram</h3>
+    <form [formGroup]="annuswaramForm" (ngSubmit)="onSubmit()">
+        <label for="syllable">Syllable:</label>
+        <input id="syllable" formControlName="syllable" type="text" />
+
+        <label for="annuswaram">Annuswaram:</label>
+        <input id="annuswaram" formControlName="annuswaram" type="text" />
+
+        <button type="submit">Create</button>
+    </form>
+</div> -->
+
+<!-- <div class="annuswaram-list">
+    <h3>Edit Annuswarams</h3>
+    <div *ngFor="let syllable of syllables">
+        <span>{{ syllable }}: {{ getAnnuswaram(syllable) }}</span>
+        <button (click)="editAnnuswaram(syllable)">Edit</button>
+    </div>
+
+    <div *ngIf="editingSyllable">
+        <h3>Edit Annuswaram for {{ editingSyllable }}</h3>
+        <form [formGroup]="editForm" (ngSubmit)="onEditSubmit()">
+            <label for="editAnnuswaram">Annuswaram:</label>
+            <input id="editAnnuswaram" formControlName="annuswaram" type="text" />
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</div> -->
+
+<!-- <div id="tooltip" [ngStyle]="tooltipStyle">
+    <input type="text" name="inputBox" id="swaram" placeholder="swarams" #swaramInput>
+</div>
+<div id="cal1"></div>
+<div id="cal2"></div>
+<p>
+    Lorem ipsum dolor
+
+</p> -->
+
+<!-- <textarea 
+  (focus)="onFocus()" 
+  (blur)="onBlur()" 
+  [ngClass]="{'selected': isFocused}">
+</textarea> -->
+
+<div>
+    <button (click)="toggleInputType()">Toggle Input Type</button>
+</div>
+
+<div *ngIf="isTextarea; else tableColumn">
+    <div class="bordered" *ngFor="let item of splitInputText">
+        {{ item }}
+    </div>
+    <textarea [(ngModel)]="inputText"></textarea>
+</div>
+
+
+<ng-template #tableColumn>
+    <table class="bordered-table">
+        <tr>
+            <td class="bordered" *ngFor="let item of splitInputText">
+                {{ item }}
+            </td>
+        </tr>
+    </table>
+</ng-template>
